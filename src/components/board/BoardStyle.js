@@ -1,11 +1,13 @@
 import styled from "styled-components";
-import { CELL_SIZE, CELL_MARGIN } from "../../constants";
+import { CELL_MARGIN } from "../../constants";
 
 export const Wrapper = styled.div`
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(${props => props.widthSize || 9}, 1fr);
+  gap: ${CELL_MARGIN}px;
   justify-content: center;
   margin: 10px auto 0 auto;
-  width: 100%;
-  height: 84%;
+  width: 90vw;
+  height: 70vh;
+  max-width: 90vh;
 `;

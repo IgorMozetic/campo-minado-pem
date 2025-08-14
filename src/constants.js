@@ -5,6 +5,27 @@ export const MIN_HEIGHT = 9;
 export const MAX_HEIGHT = 20;
 export const MIN_MINES = 10;
 
+// Difficulty Levels
+export const DIFFICULTY = {
+  EASY: "easy",
+  HARD: "hard",
+};
+
+export const DIFFICULTY_CONFIGS = {
+  [DIFFICULTY.EASY]: {
+    width: 7,
+    height: 7,
+    mines: 8,
+    label: "Fácil",
+  },
+  [DIFFICULTY.HARD]: {
+    width: 9,
+    height: 9,
+    mines: 13,
+    label: "Difícil",
+  },
+};
+
 // Design Settings
 export const CELL_SIZE = 10;
 export const CELL_MARGIN = 2;

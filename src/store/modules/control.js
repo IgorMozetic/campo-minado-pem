@@ -4,7 +4,9 @@ import {
 	MIN_HEIGHT,
 	MIN_MINES,
 	GAME,
-	CODES
+	CODES,
+	DIFFICULTY,
+	DIFFICULTY_CONFIGS
 } from '../../constants';
 import {
 	initBoard,
@@ -16,6 +18,7 @@ import {
 const SHOW_SETTINGS = 'control/SHOW_SETTINGS';
 const HIDE_SETTINGS = 'control/HIDE_SETTINGS';
 const SET_GAME = 'control/SET_GAME';
+const SET_DIFFICULTY = 'control/SET_DIFFICULTY';
 const RESTART_GAME = 'control/RESTART_GAME';
 const UPDATE_ELAPSED_TIME = 'control/UPDATE_ELAPSED_TIME';
 const OPEN_CELL = 'control/OPEN_CELL';
@@ -24,6 +27,7 @@ const ROTATE_CELL_STATE = 'control/ROTATE_CELL_STATE';
 export const showSettings = () => ({ type: SHOW_SETTINGS });
 export const hideSettings = () => ({ type: HIDE_SETTINGS });
 export const setGame = (width, height, mineCount) => ({ type: SET_GAME, width, height, mineCount });
+export const setDifficulty = (difficulty) => ({ type: SET_DIFFICULTY, difficulty });
 export const restartGame = () => ({ type: RESTART_GAME });
 export const updateElapsedTime = () => ({ type: UPDATE_ELAPSED_TIME });
 export const openCell = (x, y) => ({ type: OPEN_CELL, x, y });
@@ -34,10 +38,11 @@ const initialState = {
 	gameState: GAME.READY,
 	enableTimer: false,
 	elapsedTime: 0,
-	boardData: initBoard(MIN_WIDTH, MIN_HEIGHT, MIN_MINES),
-	width: MIN_WIDTH,
-	height: MIN_HEIGHT,
-	mineCount: MIN_MINES,
+	boardData: initBoard(DIFFICULTY_CONFIGS[DIFFICULTY.EASY].width, DIFFICULTY_CONFIGS[DIFFICULTY.EASY].height, DIFFICULTY_CONFIGS[DIFFICULTY.EASY].mines),
+	width: DIFFICULTY_CONFIGS[DIFFICULTY.EASY].width,
+	height: DIFFICULTY_CONFIGS[DIFFICULTY.EASY].height,
+	mineCount: DIFFICULTY_CONFIGS[DIFFICULTY.EASY].mines,
+	difficulty: DIFFICULTY.EASY,
 	flagCount: 0,
 	openedCellCount: 0
 };
@@ -57,6 +62,14 @@ export default function(state = initialState, action) {
 				draft.width = action.width;
 				draft.height = action.height;
 				draft.mineCount = action.mineCount;
+			});
+		case SET_DIFFICULTY:
+			return produce(state, draft => {
+				const config = DIFFICULTY_CONFIGS[action.difficulty];
+				draft.difficulty = action.difficulty;
+				draft.width = config.width;
+				draft.height = config.height;
+				draft.mineCount = config.mines;
 			});
 		case RESTART_GAME:
 			return produce(state, draft => {

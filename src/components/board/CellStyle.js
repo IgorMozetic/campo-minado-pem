@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { CELL_SIZE, CELL_MARGIN, CODES } from "../../constants";
+import { CODES } from "../../constants";
 
 export const Button = styled.button`
   background-color: ${({ cellCode }) => {
@@ -43,11 +43,11 @@ export const Button = styled.button`
     }
   }};
   display: block;
-  font-size: ${({ cellCode }) => (cellCode > 0 ? 14 : 20)}px;
+  font-size: ${({ cellCode }) => (cellCode > 0 ? "2vw" : "3vw")};
   font-weight: bold;
-  margin: ${CELL_MARGIN}px;
   outline: none;
-  width: ${CELL_SIZE}%;
-  // height: ${CELL_SIZE}px;
-  height: 11%;
+  width: 100%;
+  height: 100%;
+  min-width: 40px;
+  min-height: 40px;
 `;
