@@ -43,11 +43,15 @@ export const Button = styled.button`
     }
   }};
   display: block;
-  font-size: ${({ cellCode }) => (cellCode > 0 ? "2vw" : "3vw")};
+  font-size: ${({ cellCode }) => (cellCode > 0 ? "0.9vw" : "1.5vw")};
   font-weight: bold;
   outline: none;
   width: 100%;
   height: 100%;
   min-width: 40px;
   min-height: 40px;
+  max-font-size: ${({ cellCode }) => (cellCode > 0 ? "12px" : "16px")};
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
