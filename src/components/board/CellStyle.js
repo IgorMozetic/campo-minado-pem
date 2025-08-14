@@ -25,19 +25,19 @@ export const Button = styled.button`
       case 1:
         return "#0984E3";
       case 2:
-        return "#00B894";
+        return "#0984E3";
       case 3:
-        return "#D63031";
+        return "#0984E3";
       case 4:
-        return "#223DAA";
+        return "#0984E3";
       case 5:
-        return "#D35400";
+        return "#0984E3";
       case 6:
-        return "#8E44AD";
+        return "#0984E3";
       case 7:
-        return "#904323";
+        return "#0984E3";
       case 8:
-        return "#FC427B";
+        return "#0984E3";
       default:
         return "black";
     }
