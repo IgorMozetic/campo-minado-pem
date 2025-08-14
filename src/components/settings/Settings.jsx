@@ -25,7 +25,7 @@ const Settings = ({
 						onClick={() => onSelectDifficulty(key)}
 					>
 						<strong>{config.label}</strong>
-						<DifficultyInfo>
+						<DifficultyInfo isSelected={selectedDifficulty === key}>
 							{config.width}x{config.height} - {config.mines} bombas
 						</DifficultyInfo>
 					</DifficultyButton>
