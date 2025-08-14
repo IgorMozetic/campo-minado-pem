@@ -14,6 +14,7 @@ import {
 	getNextCellCode,
 	getFlagIncDec
 } from '../../lib/minesweeper';
+import { generateHint } from '../../lib/hintGenerator';
 
 const SHOW_SETTINGS = 'control/SHOW_SETTINGS';
 const HIDE_SETTINGS = 'control/HIDE_SETTINGS';
@@ -23,6 +24,8 @@ const RESTART_GAME = 'control/RESTART_GAME';
 const UPDATE_ELAPSED_TIME = 'control/UPDATE_ELAPSED_TIME';
 const OPEN_CELL = 'control/OPEN_CELL';
 const ROTATE_CELL_STATE = 'control/ROTATE_CELL_STATE';
+const SHOW_HINT = 'control/SHOW_HINT';
+const HIDE_HINT = 'control/HIDE_HINT';
 
 export const showSettings = () => ({ type: SHOW_SETTINGS });
 export const hideSettings = () => ({ type: HIDE_SETTINGS });
@@ -32,19 +35,26 @@ export const restartGame = () => ({ type: RESTART_GAME });
 export const updateElapsedTime = () => ({ type: UPDATE_ELAPSED_TIME });
 export const openCell = (x, y) => ({ type: OPEN_CELL, x, y });
 export const rotateCellState = (x, y) => ({ type: ROTATE_CELL_STATE, x, y });
+export const showHint = () => ({ type: SHOW_HINT });
+export const hideHint = () => ({ type: HIDE_HINT });
+
+const easyConfig = DIFFICULTY_CONFIGS[DIFFICULTY.EASY];
+const initialBoardData = initBoard(easyConfig.width, easyConfig.height, easyConfig.mines);
 
 const initialState = {
 	enableSettings: false,
 	gameState: GAME.READY,
 	enableTimer: false,
 	elapsedTime: 0,
-	boardData: initBoard(DIFFICULTY_CONFIGS[DIFFICULTY.EASY].width, DIFFICULTY_CONFIGS[DIFFICULTY.EASY].height, DIFFICULTY_CONFIGS[DIFFICULTY.EASY].mines),
-	width: DIFFICULTY_CONFIGS[DIFFICULTY.EASY].width,
-	height: DIFFICULTY_CONFIGS[DIFFICULTY.EASY].height,
-	mineCount: DIFFICULTY_CONFIGS[DIFFICULTY.EASY].mines,
+	boardData: initialBoardData,
+	width: easyConfig.width,
+	height: easyConfig.height,
+	mineCount: easyConfig.mines,
 	difficulty: DIFFICULTY.EASY,
 	flagCount: 0,
-	openedCellCount: 0
+	openedCellCount: 0,
+	showHint: true,
+	hint: generateHint(initialBoardData, easyConfig.width, easyConfig.height)
 };
 
 export default function(state = initialState, action) {
@@ -79,6 +89,8 @@ export default function(state = initialState, action) {
 				draft.boardData = initBoard(state.width, state.height, state.mineCount);
 				draft.flagCount = 0;
 				draft.openedCellCount = 0;
+				draft.showHint = true;
+				draft.hint = generateHint(draft.boardData, state.width, state.height);
 			});
 		case UPDATE_ELAPSED_TIME:
 			return produce(state, draft => {
@@ -118,6 +130,14 @@ export default function(state = initialState, action) {
 					draft.boardData[action.y][action.x] = getNextCellCode(code);
 					draft.flagCount += getFlagIncDec(code);
 				}
+			});
+		case SHOW_HINT:
+			return produce(state, draft => {
+				draft.showHint = true;
+			});
+		case HIDE_HINT:
+			return produce(state, draft => {
+				draft.showHint = false;
 			});
 		default:
 			return state;

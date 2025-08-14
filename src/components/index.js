@@ -3,3 +3,4 @@ export { default as Cell } from "./board/Cell";
 export { default as Settings } from "./settings/Settings";
 export { default as Status } from "./status/Status";
 export { default as GameOver } from "./gameover/GameOver";
+export { default as Hint } from "./hint/Hint";

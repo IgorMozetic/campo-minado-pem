@@ -3,3 +3,4 @@ export { default as CellContainer } from './board/Cell';
 export { default as SettingsContainer } from './settings/Settings';
 export { default as StatusContainer } from './status/Status';
 export { default as GameOverContainer } from './gameover/GameOver';
+export { default as HintContainer } from './hint/Hint';
