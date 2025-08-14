@@ -3,6 +3,7 @@ import {
   SettingsContainer,
   StatusContainer,
   BoardContainer,
+  GameOverContainer,
 } from "./containers";
 import { Wrapper, Title } from "./AppStyle";
 
@@ -13,6 +14,7 @@ const App = () => {
       <SettingsContainer />
       <StatusContainer />
       <BoardContainer />
+      <GameOverContainer />
     </Wrapper>
   );
 };
