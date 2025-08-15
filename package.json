@@ -1,4 +1,5 @@
 {
+  "homepage": "https://igormozetic.github.io/campo-minado-pem/",
   "name": "campo-minado-pem",
   "version": "1.0.0",
   "description": "Jogo Campo Minado desenvolvido para a disciplina de Praticas de Ensino em Matematica na UFABC.",
@@ -9,7 +10,10 @@
     "deploy": "gh-pages -d build",
     "predeploy": "npm run build"
   },
-  "homepage": "https://igormozetic.github.io/campo-minado-pem/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IgorMozetic/campo-minado-pem.git"
+  },
   "dependencies": {
     "bootstrap": "^5.3.7",
     "gh-pages": "^6.3.0",
