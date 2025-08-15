@@ -1,24 +1,16 @@
 {
-  "name": "react-minesweeper-game",
+  "name": "campo-minado-pem",
   "version": "1.0.0",
-  "description": "Minesweeper Game in React",
+  "description": "Jogo Campo Minado desenvolvido para a disciplina de Praticas de Ensino em Matematica na UFABC.",
   "main": "./src/index.jsx",
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack-dev-server --hot --open",
     "build": "cross-env NODE_ENV=production webpack --progress"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/nbsp1221/react-minesweeper-game.git"
-  },
-  "author": "nbsp1221",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/nbsp1221/react-minesweeper-game/issues"
-  },
-  "homepage": "https://github.com/nbsp1221/react-minesweeper-game#readme",
+  "homepage": "https://igormozetic.github.io/campo-minado-pem/",
   "dependencies": {
     "bootstrap": "^5.3.7",
+    "gh-pages": "^6.3.0",
     "immer": "8.0.4",
     "react": "16.14.0",
     "react-dom": "16.14.0",
