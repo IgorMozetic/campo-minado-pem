@@ -7,10 +7,12 @@ import {
   HintContainer,
 } from "./containers";
 import { Wrapper, Title } from "./AppStyle";
+import MatrixRain from "./MatrixRain";
 
 const App = () => {
   return (
     <Wrapper>
+      <MatrixRain />
       <Title>Campo Minado das Equações</Title>
       <SettingsContainer />
       <StatusContainer />
