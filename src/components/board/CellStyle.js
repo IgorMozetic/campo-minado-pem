@@ -17,21 +17,22 @@ export const Button = styled.button`
         return "white";
     }
   }};
-  border: 2px solid ${({ cellCode }) => {
-    switch (cellCode) {
-      case CODES.NOTHING:
-      case CODES.MINE:
-        return "#87CEEB";
-      case CODES.FLAG:
-      case CODES.MINE_FLAG:
-        return "#F39C12";
-      case CODES.QUESTION:
-      case CODES.MINE_QUESTION:
-        return "#2ECC71";
-      default:
-        return "#ddd";
-    }
-  }};
+  border: 2px solid
+    ${({ cellCode }) => {
+      switch (cellCode) {
+        case CODES.NOTHING:
+        case CODES.MINE:
+          return "#87CEEB";
+        case CODES.FLAG:
+        case CODES.MINE_FLAG:
+          return "#F39C12";
+        case CODES.QUESTION:
+        case CODES.MINE_QUESTION:
+          return "#2ECC71";
+        default:
+          return "#ddd";
+      }
+    }};
   border-radius: 8px;
   box-sizing: border-box;
   color: ${({ cellCode }) => {
@@ -62,8 +63,8 @@ export const Button = styled.button`
   outline: none;
   width: 100%;
   height: 100%;
-  min-width: 40px;
-  min-height: 40px;
+  min-width: 20px;
+  min-height: 20px;
   max-font-size: ${({ cellCode }) => (cellCode > 0 ? "12px" : "16px")};
   white-space: nowrap;
   overflow: hidden;
@@ -87,13 +88,19 @@ export const Button = styled.button`
   }
 
   @keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(0.95); }
-    100% { transform: scale(1); }
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(0.95);
+    }
+    100% {
+      transform: scale(1);
+    }
   }
 
   &:focus {
-    outline: 2px solid #4CAF50;
+    outline: 2px solid #4caf50;
     outline-offset: 2px;
   }
 `;
