@@ -32,10 +32,10 @@ const MatrixRain = () => {
     const drops = Array(columns).fill(1);
 
     const draw = () => {
-      ctx.fillStyle = 'rgba(103, 126, 234, 0.02)';
+      ctx.fillStyle = 'rgba(103, 126, 234, 0.15)';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      ctx.fillStyle = 'rgba(255, 255, 255, 0.15)';
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.25)';
       ctx.font = `${fontSize}px monospace`;
 
       for (let i = 0; i < drops.length; i++) {
